@@ -1,0 +1,23 @@
+<% @users.each do |user|%>
+ <div class="team">
+  <%= image_tag "rank#{user.toprank_id}.png"%>
+  <%= image_tag "rank#{user.jgrank_id}.png"%>
+  <%= image_tag "rank#{user.midrank_id}.png"%>
+  <%= image_tag "rank#{user.suprank_id}.png"%>
+  <%= image_tag "rank#{user.botrank_id}.png"%>
+   <div class="detail">
+    <div calss="name">
+     チーム名　　: <%=user.teamname%>
+    </div>
+    <div calss="weekday">
+     活動日　　　: <%=user.weekday[:name]%>
+    </div>
+    <div class="time">
+     コアタイム　: <%=user.starttime.strftime("%H:%M")%> ~ <%=user.endtime.strftime("%H:%M")%>
+    </div>
+    <div class="comment">
+     詳細説明　　: <%=user.detail%>
+     </div>
+   </div>
+ </div>
+<%end%>

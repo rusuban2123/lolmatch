@@ -17,12 +17,12 @@
   <div class="field">
     <%= f.label :Password（同じパスワードをもう一度入力してくだい） %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+ </div>
 
    <div class="field">
     <%= f.label :teamname, "チーム名" %><br />
     <%= f.text_field :teamname %>
-  </div>
+   </div>
 
   <div class="field">
     <%= f.label :toplank, "TOP RANK" %><br />
@@ -32,26 +32,45 @@
    <div class="field">
     <%= f.label :jglank, "JG RANK" %><br />
     <%= f.collection_select(:jgrank_id, Rank.all, :id, :name, {include_blank: "---"}, {class:"select-box"}) %>
-  </div>
+   </div>
 
    <div class="field">
     <%= f.label :midlank, "MID RANK" %><br />
     <%= f.collection_select(:midrank_id, Rank.all, :id, :name, {include_blank: "---"}, {class:"select-box"}) %>
-  </div>
+   </div>
 
    <div class="field">
     <%= f.label :suplank, "SUP RANK" %><br />
     <%= f.collection_select(:suprank_id, Rank.all, :id, :name, {include_blank: "---"}, {class:"select-box"}) %>
-  </div>
+   </div>
 
    <div class="field">
     <%= f.label :botlank, "BOT RANK" %><br />
     <%= f.collection_select(:botrank_id, Rank.all, :id, :name, {include_blank: "---"}, {class:"select-box"}) %>
+   </div>
+
+   <div class="field">
+    <%= f.label :weekday, "活動日" %><br />
+    <%= f.collection_select(:weekday_id, Weekday.all, :id, :name, {include_blank: "---"}, {class:"select-box"}) %>
+   </div>
+
+   <div class="field">
+    <%= f.label :starttime, "コアタイム" %><br />
+    <%= f.time_field :starttime %>〜〜
+    <%= f.time_field :endtime %>
   </div>
+
+  <div class="field">
+    <%= f.label :detail, "チーム紹介" %><br />
+    <%= f.text_area :detail %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+
+  
 <% end %>
 
 <%= render "devise/shared/links" %>

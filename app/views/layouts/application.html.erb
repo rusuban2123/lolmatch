@@ -20,8 +20,6 @@
           <% if user_signed_in? %>
              <div class="nav__right"> 
               <%= link_to "トップページ", root_path, class: :nav__logout %>
-              <%= link_to "新規投稿", new_tweet_path, class: :nav__btn %>
-              <%= link_to current_user.teamname, "#", class: :nav__logout %>
               <%= link_to "ログアウト", destroy_user_session_path, class: :nav__logout %>
              </div> 
          <% else %>

@@ -12,7 +12,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.integer :midrank_id,         null: false
       t.integer :suprank_id,         null: false
       t.integer :botrank_id,         null: false
-
+      t.text    :detail,             null: false
+      t.integer :weekday_id,         null: false
+      t.time    :starttime,          null: false
+      t.time    :endtime,            null: false
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
