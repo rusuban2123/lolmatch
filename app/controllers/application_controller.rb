@@ -6,4 +6,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:teamname, :toprank_id, :jgrank_id, :midrank_id, :suprank_id, :botrank_id])
   end
 end
-end
+
