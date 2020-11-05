@@ -1,0 +1,26 @@
+<h2>フォロー一覧</h2>
+  <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+    <p>
+      <%= "チーム名: #{user.teamname} email: #{user.email}" %>
+      <% if current_user.following?(user) %>
+        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+      <% end %>
+    </p>
+  <% end %>
+<h2>フォロワー一覧</h2>
+  <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+    <p>
+      <%= "チーム名: #{user.teamname} email: #{user.email}" %>
+      <% if current_user.following?(user) %>
+        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+      <% end %>
+    </p>
+    <% end %>
+    <h2>スクリムパートナー</h2>
+  <% @user.follower_user.each && @user.follower_user.each do |user| %>
+    <%= "チーム名: #{user.teamname} email: #{user.email}" %>
+  <% end %>

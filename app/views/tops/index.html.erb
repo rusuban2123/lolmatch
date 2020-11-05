@@ -7,7 +7,7 @@
   <%= image_tag "rank#{user.botrank_id}.png"%>
    <div class="detail">
     <div calss="name">
-     チーム名　　: <%=user.teamname%>
+     チーム名　　: <%= link_to user.teamname, user_path(user.id)%>
     </div>
     <div calss="weekday">
      活動日　　　: <%=user.weekday[:name]%>
@@ -19,7 +19,7 @@
      詳細説明　　: <%=user.detail%>
      </div>
      <% if user_signed_in?%>
-      <% if current_user.following?(user) %>
+      <% if current_user.following?(user)%>
         <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class: :nav__logout %>
       <% else %>
         <%= link_to 'フォローする', follow_path(user.id), method: :POST, class: :nav__logout %>

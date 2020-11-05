@@ -8,4 +8,6 @@ class RelationshipsController < ApplicationController
     current_user.unfollow(params[:id])
     redirect_to root_path
   end
+  
+
 end
