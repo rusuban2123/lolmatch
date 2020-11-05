@@ -18,6 +18,15 @@
     <div class="comment">
      詳細説明　　: <%=user.detail%>
      </div>
+     <% if user_signed_in?%>
+      <% if current_user.following?(user) %>
+        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class: :nav__logout %>
+      <% else %>
+        <%= link_to 'フォローする', follow_path(user.id), method: :POST, class: :nav__logout %>
+      <% end %>
+　　　<% end %>
+
    </div>
  </div>
+ 
 <%end%>
