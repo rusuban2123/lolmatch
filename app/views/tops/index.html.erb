@@ -20,9 +20,9 @@
      </div>
      <% if user_signed_in?%>
       <% if current_user.following?(user)%>
-        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class: :nav__logout %>
+        <%= link_to '関係を解消する', unfollow_path(user.id), method: :POST, class: :nav__logout %>
       <% else %>
-        <%= link_to 'フォローする', follow_path(user.id), method: :POST, class: :nav__logout %>
+        <%= link_to 'パートナー申請', follow_path(user.id), method: :POST, class: :nav__logout %>
       <% end %>
 　　　<% end %>
 

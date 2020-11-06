@@ -1,0 +1,28 @@
+
+<h2>パートナー申請</h2>
+  <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+   <% if current_user.following?(user) %>
+   <%else%>
+    <p>
+      <%= "チーム名: #{user.teamname} email: #{user.email}" %>
+      <% if current_user.following?(user) %>
+        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+      <% else %>
+        <%= link_to 'パートナーになる', follow_path(user.id), method: :POST %>
+      <% end %>
+    <%end%>
+    </p>
+    <% end %>
+ <h2>スクリムパートナー</h2>
+   <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+   <% if current_user.following?(user) %>
+    <p>
+      <%= "チーム名: #{user.teamname} email: #{user.email}" %>
+      <% if current_user.following?(user) %>
+        <%= link_to 'パートナー解除', unfollow_path(user.id), method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+      <% end %>
+    <%end%>
+    </p>
+    <% end %>
