@@ -1,10 +1,56 @@
-
-<h2>パートナー申請</h2>
+<details open>
+  <summary>パートナー申請</summary>
   <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
    <% if current_user.following?(user) %>
    <%else%>
     <p>
-      <%= "チーム名: #{user.teamname} email: #{user.email}" %>
+      <div class="team">
+  <div class="image">
+   <div class="rank">
+    <%= image_tag "rank#{user.toprank_id}.png"%>
+    <div>T O P</div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.jgrank_id}.png"%>
+    <div> J G </div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.midrank_id}.png"%>
+    <div>M I D</div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.suprank_id}.png"%>
+    <div>S U P</div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.botrank_id}.png"%>
+    <div>B O T</div>
+   </div>
+  </div>
+  <div class="detail">
+    <div calss="name">
+     チーム名　　: <%= link_to user.teamname, user_path(user.id)%>
+    </div>
+    <div calss="weekday">
+     活動日　　　: <%=user.weekday[:name]%>
+    </div>
+    <div class="time">
+     コアタイム　: <%=user.starttime.strftime("%H:%M")%> ~ <%=user.endtime.strftime("%H:%M")%>
+    </div>
+    <div class="comment">
+     詳細説明　　: <%=user.detail%>
+     </div>
+   </div>
+    <div class="select">
+     <% if user_signed_in?%>
+      <% if current_user.following?(user)%>
+        <%= link_to '関係を解消する', unfollow_path(user.id), method: :POST, class: :nav__post %>
+      <% else %>
+        <%= link_to '承認する', follow_path(user.id), method: :POST, class: :nav__post %>
+      <% end %>
+     <% end %>
+    </div>
+ </div>
       <% if current_user.following?(user) %>
         <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
       <% else %>
@@ -13,16 +59,58 @@
     <%end%>
     </p>
     <% end %>
- <h2>スクリムパートナー</h2>
+</details>
+
+
+ <details open>
+  <summary>スクリムパートナー</summary>
    <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
    <% if current_user.following?(user) %>
-    <p>
-      <%= "チーム名: #{user.teamname} email: #{user.email}" %>
-      <% if current_user.following?(user) %>
-        <%= link_to 'パートナー解除', unfollow_path(user.id), method: :POST %>
+    <div class="team">
+  <div class="image">
+   <div class="rank">
+    <%= image_tag "rank#{user.toprank_id}.png"%>
+    <div>T O P</div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.jgrank_id}.png"%>
+    <div> J G </div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.midrank_id}.png"%>
+    <div>M I D</div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.suprank_id}.png"%>
+    <div>S U P</div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.botrank_id}.png"%>
+    <div>B O T</div>
+   </div>
+  </div>
+  <div class="detail">
+    <div calss="name">
+     チーム名　　: <%= link_to user.teamname, user_path(user.id)%>
+    </div>
+    <div calss="weekday">
+     活動日　　　: <%=user.weekday[:name]%>
+    </div>
+    <div class="time">
+     コアタイム　: <%=user.starttime.strftime("%H:%M")%> ~ <%=user.endtime.strftime("%H:%M")%>
+    </div>
+   </div>
+    <div class="select">
+     <% if user_signed_in?%>
+      <% if current_user.following?(user)%>
+        <%= link_to '関係を解消する', unfollow_path(user.id), method: :POST, class: :nav__post %>
       <% else %>
-        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+        <%= link_to 'パートナー申請', follow_path(user.id), method: :POST, class: :nav__post %>
       <% end %>
+     <% end %>
+    </div>
+ </div>
     <%end%>
-    </p>
     <% end %>
+</details>
+

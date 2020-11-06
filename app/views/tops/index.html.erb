@@ -1,11 +1,28 @@
 <% @users.each do |user|%>
  <div class="team">
-  <%= image_tag "rank#{user.toprank_id}.png"%>
-  <%= image_tag "rank#{user.jgrank_id}.png"%>
-  <%= image_tag "rank#{user.midrank_id}.png"%>
-  <%= image_tag "rank#{user.suprank_id}.png"%>
-  <%= image_tag "rank#{user.botrank_id}.png"%>
-   <div class="detail">
+  <div class="image">
+   <div class="rank">
+    <%= image_tag "rank#{user.toprank_id}.png"%>
+    <div>T O P</div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.jgrank_id}.png"%>
+    <div> J G </div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.midrank_id}.png"%>
+    <div>M I D</div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.suprank_id}.png"%>
+    <div>S U P</div>
+   </div>
+   <div class="rank">
+    <%= image_tag "rank#{user.botrank_id}.png"%>
+    <div>B O T</div>
+   </div>
+  </div>
+  <div class="detail">
     <div calss="name">
      チーム名　　: <%= link_to user.teamname, user_path(user.id)%>
     </div>
@@ -18,15 +35,16 @@
     <div class="comment">
      詳細説明　　: <%=user.detail%>
      </div>
+   </div>
+    <div class="select">
      <% if user_signed_in?%>
       <% if current_user.following?(user)%>
-        <%= link_to '関係を解消する', unfollow_path(user.id), method: :POST, class: :nav__logout %>
+        <%= link_to '関係を解消する', unfollow_path(user.id), method: :POST, class: :nav__post %>
       <% else %>
-        <%= link_to 'パートナー申請', follow_path(user.id), method: :POST, class: :nav__logout %>
+        <%= link_to 'パートナー申請', follow_path(user.id), method: :POST, class: :nav__post %>
       <% end %>
-　　　<% end %>
-
-   </div>
+     <% end %>
+    </div>
  </div>
  
 <%end%>
