@@ -51,11 +51,6 @@
      <% end %>
     </div>
  </div>
-      <% if current_user.following?(user) %>
-        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
-      <% else %>
-        <%= link_to 'パートナーになる', follow_path(user.id), method: :POST %>
-      <% end %>
     <%end%>
     </p>
     <% end %>
@@ -113,4 +108,6 @@
     <%end%>
     <% end %>
 </details>
+
+
 

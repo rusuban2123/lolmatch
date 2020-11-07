@@ -1,15 +1,14 @@
-<h1>DM</h1>
 
-<h4>参加者</h4>
-<% @entries.each do |e| %>
-  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.email%>さん</a></strong></h5>
+<% @entries.where.not(id: current_user.id).each do |e| %>
+  <h2><strong><a href="/users/<%= e.user.id %>"><%= e.user.teamname%>とのチャットルーム</a></strong></h2>
 <% end %>
+
 
 <hr>
 <% if @messages.present? %>
   <% @messages.each do |m| %>
+    <small><strong><a href="/users/<%= m.user_id %>"><%= m.user.teamname %>:</a></strong></small>
     <strong><%= m.content %></strong>
-    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.email %>さん</a></strong></small>
     <hr>
   <% end %>
 <% else %>
@@ -23,4 +22,4 @@
   <%= f.submit "投稿する" %>
 <% end %>
 
-<%= link_to "ユーザー一覧に戻る", users_path %>
+<%= link_to "ユーザー一覧に戻る", root_path %>

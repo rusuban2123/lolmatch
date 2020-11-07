@@ -1,20 +1,22 @@
-<h1>ユーザー詳細</h1>
 
-<h2><%= @user.teamname %></h2>
-
+<div class="chat">
 <% if @user.id == current_user.id %>
-
 <% else %>
+<META http-equiv="Refresh" content="0.001;URL=/rooms/<%= @roomId %>">
   <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+  <div class="startchat">
+    <p><a href="/rooms/<%= @roomId %>"></a>
+  </div>
   <% else %>
     <%= form_for @room do |f| %>
       <%= fields_for @entry do |e| %>
         <%= e.hidden_field :user_id, :value=> @user.id %>
       <% end %>
-      <%= f.submit "チャットを始める" %>
+   <%= f.submit "" %>
     <% end %>
   <% end %>
 <% end %>
-
-<%= link_to "ユーザー一覧に戻る", users_path %>
+  <div class="gotop">
+   <%= link_to "", root_path %>
+  </div>
+</div>
