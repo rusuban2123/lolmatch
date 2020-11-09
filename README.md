@@ -65,6 +65,9 @@
 # 機能GIF
 * デプロイ完了後に追記します。
 
-#ER図
-https://gyazo.com/f2925a31b77024fcfd47d1b5aa4b2131
+# ER図
+ https://gyazo.com/f2925a31b77024fcfd47d1b5aa4b2131
+ 
+# ローカルでの動作方法
+* デプロイごに追試します。
 
