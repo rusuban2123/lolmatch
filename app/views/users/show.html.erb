@@ -2,8 +2,8 @@
 <div class="chat">
 <% if @user.id == current_user.id %>
 <% else %>
-<META http-equiv="Refresh" content="0.004;URL=/rooms/<%= @roomId %>">
   <% if @isRoom == true %>
+  <META http-equiv="Refresh" content="0.1;URL=/rooms/<%= @roomId %>">
   <div class="startchat">
     <p><a href="/rooms/<%= @roomId %>"></a>
   </div>
@@ -12,7 +12,7 @@
       <%= fields_for @entry do |e| %>
         <%= e.hidden_field :user_id, :value=> @user.id %>
       <% end %>
-   <%= f.submit "" %>
+   <%= f.submit "#{@user.teamname}とのチャットルームを作成する" %>
     <% end %>
   <% end %>
 <% end %>

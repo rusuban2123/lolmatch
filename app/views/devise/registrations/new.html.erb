@@ -50,7 +50,7 @@
    </div>
 
    <div class="field">
-    <%= f.label :power, "チームパワー" %><br />
+    <%= f.label :power, "チームパワー(それぞれのポジションの()内の数値を足した値を入力してください)" %><br />
     <%= f.collection_select(:power_id, Power.all, :id, :name, {include_blank: "---"}, {class:"select-box"}) %>
    </div>
 

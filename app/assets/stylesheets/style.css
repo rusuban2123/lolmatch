@@ -37,20 +37,27 @@ a {
 /* ヘッダー */
 
 .header {
+  display: flex;
   background-color: #f1f8fe;
-  margin-bottom: 48px;
   padding: 20px 0;
-
 }
 .inner {
   width: 1024px;
-  margin: 0 auto;
+  
 }
 .nav {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
 }
+
+.nav__right{
+  display: flex;
+  margin: 43px 1px 1px 575px;
+  text-align: right;
+}
+
+
 .logo {
   width: 200px;
 }
@@ -114,7 +121,7 @@ a {
   color: #87CEFA;
   text-decoration: none;
   user-select: none;
-  padding: 0px 0px 0px 60px;
+  padding: 0px 0px 0px 100px;
 }
 
 .image{
@@ -148,4 +155,16 @@ a {
   user-select: none;
 }
 
+.search{
+  display: flex;
+  margin: 1
+  px;
+}
+.sfield{
+ margin: 1px 30px 1px 1px;
+}
+
+.scrim{
+  font-size: 50px;
+}
 

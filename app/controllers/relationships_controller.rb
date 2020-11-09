@@ -2,12 +2,12 @@ class RelationshipsController < ApplicationController
   before_action :authenticate_user!, :only => [:show]
   def follow
     current_user.follow(params[:id])
-    redirect_to root_path
+    redirect_to relationship_path(current_user.id)
   end
   
   def unfollow
     current_user.unfollow(params[:id])
-    redirect_to root_path
+    redirect_to relationship_path(current_user.id)
   end
 
   before_action :authenticate_user!, :only => [:show]

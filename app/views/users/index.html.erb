@@ -1,29 +1,31 @@
  <%= form_with(scope: :search, url: users_path, method: :get, local: true) do |f| %>
-    <div class="field">
-      <%= f.label(:teamname) %>
+  <div class="search">
+    <div class="sfield">
+      <%= f.label(:チーム名) %>
       <%= f.text_field :teamname, value: @search_params[:teamname] %>
     </div>
 
-    <div class="field">
-      <%= f.label(:weekday) %>
+    <div class="sfield">
+      <%= f.label(:活動日) %>
       <%= f.collection_select(:weekday_id, Weekday.all, :id, :name, selected: @search_params[:weekday_id], include_blank: t('helpers.select.include_blank')) %>
     </div>
 
-    <div class="field">
-      <%= f.label(:stime) %>
+    <div class="sfield">
+      <%= f.label(:コアタイム) %>
       <%= f.collection_select(:stime_id, Stime.all, :id, :name, selected: @search_params[:stime_id], include_blank: t('helpers.select.include_blank')) %>
     </div>
 
-    <div class="field">
-      <%= f.label(:power_id) %>
+    <div class="sfield">
+      <%= f.label(:チームパワー) %>
       <%= f.collection_select(:power_id_from, Power.all, :id, :name, selected: @search_params[:power_id_from], include_blank: t('helpers.select.include_blank')) %> ~
-      <%= f.collection_select(:power_id_to, Power.all, :id, :name, value: @search_params[:power_id_to]) %>
+      <%= f.collection_select(:power_id_to, Power.all, :id, :name, value: @search_params[:power_id_to], include_blank: t('helpers.select.include_blank')) %>
     </div>
 
-    <div class="actions">
-      <%= f.submit(t('helpers.submit.search')) %>
+    <div class="sfield">
+      <%= f.submit('検索') %>
     </div>
-  <% end %>
+  </div>
+ <%end%>
 <% @users.each do |user|%>
  <div class="team">
   <div class="image">
@@ -61,10 +63,6 @@
     <div class="comment">
      チームパワー: <%=user.power_id%>
      </div>
-    <div class="comment">
-     詳細説明　　: <%=user.detail%>
-     </div>
-
    </div>
     <div class="select">
      <% if user_signed_in? && user.id != current_user.id%>

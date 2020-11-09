@@ -40,7 +40,7 @@ class User < ApplicationRecord
      scope :power_id_from, -> (from) { where('? <= power_id', from) if from.present? }
      scope :power_id_to, -> (to) { where('power_id <= ?', to) if to.present? }
      scope :stime_id_is, -> (stime_id) { where(stime_id: stime_id) if stime_id.present? }
-     scope :weekday_id_is, -> (weekday_id) { where(weekday_id: stime_id) if weekday_id.present? }
+     scope :weekday_id_is, -> (weekday_id) { where(weekday_id: weekday_id) if weekday_id.present? }
 
 
      
