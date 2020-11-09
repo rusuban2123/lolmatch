@@ -2,7 +2,7 @@
 <div class="chat">
 <% if @user.id == current_user.id %>
 <% else %>
-<META http-equiv="Refresh" content="0.001;URL=/rooms/<%= @roomId %>">
+<META http-equiv="Refresh" content="0.004;URL=/rooms/<%= @roomId %>">
   <% if @isRoom == true %>
   <div class="startchat">
     <p><a href="/rooms/<%= @roomId %>"></a>

@@ -21,6 +21,7 @@
              <div class="nav__right"> 
               <%= link_to "パートナー管理", relationship_path(current_user.id), class: :nav__logout%>
               <%= link_to "トップページ", root_path, class: :nav__logout %>
+              <%= link_to "チーム編集", edit_user_path(current_user), class: :nav__logout %>
               <%= link_to "ログアウト", destroy_user_session_path, class: :nav__logout %>
              </div> 
          <% else %>

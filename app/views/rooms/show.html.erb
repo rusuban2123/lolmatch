@@ -1,6 +1,6 @@
 
-<% @entries.where.not(id: current_user.id).each do |e| %>
-  <h2><strong><a href="/users/<%= e.user.id %>"><%= e.user.teamname%>とのチャットルーム</a></strong></h2>
+<% @entries.where.not( id:current_user.id).each do |e| %>
+  <h2><strong><a href="/users/<%= e.user.id %>"><%= e.user.teamname%>のチャットルーム</a></strong></h2>
 <% end %>
 
 

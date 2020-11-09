@@ -5,6 +5,17 @@ class UsersController < ApplicationController
     @users = User.search(@search_params)
   end
 
+  def edit
+  end
+
+  def update
+    if current_user.update(user_params)
+       redirect_to root_path
+    else
+       redirect_to edit_user_path(current_user)
+    end
+  end
+
   def show
     @user=User.find(params[:id])
     @currentUserEntry=Entry.where(user_id: current_user.id)
@@ -28,6 +39,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit([:teamname, :toprank_id, :jgrank_id, :midrank_id, :suprank_id, :botrank_id, :power_id, :detail, :weekday_id, :stime_id])
+  end
 
   def user_search_params
     params.fetch(:search, {}).permit(:teamname, :power_id_from, :power_id_to, :weekday_id, :stime_id)
