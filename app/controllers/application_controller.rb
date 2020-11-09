@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:teamname, :toprank_id, :jgrank_id, :midrank_id, :suprank_id, :botrank_id, :detail, :starttime, :endtime, :weekday_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:teamname, :toprank_id, :jgrank_id, :midrank_id, :suprank_id, :botrank_id, :power_id, :detail, :starttime, :endtime, :weekday_id, :stime_id])
   end
 end
 

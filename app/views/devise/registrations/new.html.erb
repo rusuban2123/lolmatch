@@ -50,15 +50,19 @@
    </div>
 
    <div class="field">
+    <%= f.label :power, "チームパワー" %><br />
+    <%= f.collection_select(:power_id, Power.all, :id, :name, {include_blank: "---"}, {class:"select-box"}) %>
+   </div>
+
+   <div class="field">
     <%= f.label :weekday, "活動日" %><br />
     <%= f.collection_select(:weekday_id, Weekday.all, :id, :name, {include_blank: "---"}, {class:"select-box"}) %>
    </div>
 
    <div class="field">
     <%= f.label :starttime, "コアタイム" %><br />
-    <%= f.time_field :starttime %>〜〜
-    <%= f.time_field :endtime %>
-  </div>
+    <%= f.collection_select(:stime_id, Stime.all, :id, :name, {include_blank: "---"}, {class:"select-box"}) %>
+   </div>
 
   <div class="field">
     <%= f.label :detail, "チーム紹介" %><br />
