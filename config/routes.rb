@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'tops#index'
+  root to: 'users#index'
   post 'follow/:id' => 'relationships#follow', as: 'follow' 
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' 
-  resources :tops
+
   resources :users
   resources :messages
   resources :rooms
