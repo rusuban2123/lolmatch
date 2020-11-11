@@ -15,6 +15,25 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
   
+  with_options presence: true do
+   validates :teamname
+   validates :toprank_id
+   validates :jgrank_id
+   validates :midrank_id
+   validates :suprank_id
+   validates :botrank_id
+   validates :power_id
+   validates :weekday_id
+   validates :stime_id
+   validates :detail
+  end
+
+  with_options uniqueness: true do
+   validates :email
+   validates :teamname
+  end
+
+
   def follow(user_id)
        follower.create(followed_id: user_id)
       end
