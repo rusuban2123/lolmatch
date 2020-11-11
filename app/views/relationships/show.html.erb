@@ -103,6 +103,7 @@
     <div class="select">
      <% if user_signed_in?%>
       <% if current_user.following?(user)%>
+        <%= link_to 'チャット', user_path(user.id),class: :nav__post %>
         <%= link_to '関係を解消する', unfollow_path(user.id), method: :POST, class: :nav__post %>
       <% else %>
         <%= link_to 'パートナー申請', follow_path(user.id), method: :POST, class: :nav__post %>
