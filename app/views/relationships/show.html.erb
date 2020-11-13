@@ -3,8 +3,7 @@
   <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
    <% if current_user.following?(user) %>
    <%else%>
-    <p>
-      <div class="team">
+<div class="team">
   <div class="image">
    <div class="rank">
     <%= image_tag "rank#{user.toprank_id}.png"%>
@@ -34,13 +33,13 @@
     <div calss="weekday">
      活動日　　　: <%=user.weekday[:name]%>
     </div>
-     <div class="time">
+        <div class="time">
      コアタイム　: <%=user.stime[:name]%>
     </div>
     <div class="comment">
      チームパワー: <%=user.power_id%>
      </div>
-
+ 
    </div>
     <div class="select">
      <% if user_signed_in?%>
@@ -52,8 +51,7 @@
      <% end %>
     </div>
  </div>
-    <%end%>
-    </p>
+    <% end %>
     <% end %>
 </details>
 

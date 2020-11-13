@@ -110,8 +110,11 @@ a {
 }
 
 .detail{
-  padding: 0px 0px 0px 50px;
-  font-size: 22px;
+  padding: 0px 0px 0px 70px;
+  font-size: 23px;
+  width: 25%;
+  white-space: nowrap;
+
 }
 
 .nav__post{
@@ -126,12 +129,14 @@ a {
 
 .image{
   display: flex;
+  width: 50%;
 }
 
 .rank{
   text-align: center;
   font-size: 22px;
   margin: 6px 6px 6px 6px;
+  width: 150px;
   
 }
 
@@ -157,8 +162,10 @@ a {
 
 .search{
   display: flex;
-  margin: 1
-  px;
+  margin: 1;
+  align-items: center;
+  height: 120px;
+  
 }
 .sfield{
  margin: 1px 30px 1px 1px;
@@ -166,5 +173,10 @@ a {
 
 .scrim{
   font-size: 50px;
+}
+
+.select{
+  margin: 1px 1px 1x 30px;
+  text-align: right;
 }
 

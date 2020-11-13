@@ -7,18 +7,18 @@
 
     <div class="sfield">
       <%= f.label(:活動日) %>
-      <%= f.collection_select(:weekday_id, Weekday.all, :id, :name, selected: @search_params[:weekday_id], include_blank: t('helpers.select.include_blank')) %>
+      <%= f.collection_select(:weekday_id, Weekday.all, :id, :name, selected: @search_params[:weekday_id], include_blank: "---") %>
     </div>
 
     <div class="sfield">
       <%= f.label(:コアタイム) %>
-      <%= f.collection_select(:stime_id, Stime.all, :id, :name, selected: @search_params[:stime_id], include_blank: t('helpers.select.include_blank')) %>
+      <%= f.collection_select(:stime_id, Stime.all, :id, :name, selected: @search_params[:stime_id], include_blank: "---") %>
     </div>
 
     <div class="sfield">
       <%= f.label(:チームパワー) %>
-      <%= f.collection_select(:power_id_from, Power.all, :id, :name, selected: @search_params[:power_id_from], include_blank: t('helpers.select.include_blank')) %> ~
-      <%= f.collection_select(:power_id_to, Power.all, :id, :name, value: @search_params[:power_id_to], include_blank: t('helpers.select.include_blank')) %>
+      <%= f.collection_select(:power_id_from, Power.all, :id, :name, selected: @search_params[:power_id_from], include_blank: "---") %> ~
+      <%= f.collection_select(:power_id_to, Power.all, :id, :name, value: @search_params[:power_id_to], include_blank: "---") %>
     </div>
 
     <div class="sfield">
